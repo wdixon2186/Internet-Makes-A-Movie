@@ -1,0 +1,11 @@
+{% extends "imam/base.html" %} {% block content %}
+<h2>Videos <a href="videos/new">(+)</a></h2>
+<ul>
+  {% for video in videos %}
+  <li>
+    <a href="{% url 'video_detail' pk=video.pk %}">{{video.name}}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

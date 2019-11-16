@@ -1,0 +1,11 @@
+{% extends "imam/base.html" %} {% block content %}
+<h2>Scripts <a href="comments/new">(+)</a></h2>
+<ul>
+  {% for comment in comments %}
+  <li>
+    <a href="{% url 'comment_detail' pk=comment.pk %}">{{ comment.comment }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

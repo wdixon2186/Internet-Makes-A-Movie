@@ -1,0 +1,17 @@
+{% extends 'imam/base.html' %} {% block content %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload Videos</title>
+  </head>
+
+  <body>
+    <h1>Video Uploader</h1>
+    <form enctype="multipart/form-data" method="POST" class="video-form">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    {% endblock %}
+  </body>
+</html>

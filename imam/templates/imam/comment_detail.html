@@ -1,0 +1,9 @@
+{% extends "imam/base.html" %} {% block content %}
+<br />
+<a href="{%  url 'comment_edit' pk=comment.pk%}">Edit</a>
+<div class="right">
+  <a href="{% url 'comment_delete' pk=comment.pk %}">Delete</a>
+</div>
+
+<h4 class="detail">Comment: {{ comment.comment}}</h4>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "imam/base.html" %} {% block content %}
+<h2>Scripts <a href="scripts/new">(+)</a></h2>
+<ul>
+  {% for script in scripts %}
+  <li>
+    <a href="{% url 'script_detail' pk=script.pk %}">{{ script.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
