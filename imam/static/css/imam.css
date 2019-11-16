@@ -1,11 +1,8 @@
-body {
+/* body {
   font-family: "Helvetica Neue", sans-serif;
   max-width: 50em;
   margin: auto;
   padding: 2em 1em;
-  background-image: url("http://images.ctfassets.net/3s5io6mnxfqz/4FgiJwJPwtk1i8HzoGcC4F/7cd4e2b9312a58ba3f385e9f02bd6338/AdobeStock_112096736.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 .right {
   text-align: right;
@@ -110,3 +107,18 @@ img {
 .detail {
   color: yellow;
 }
+.block {
+  background-color: yellow;
+  color: white;
+}
+
+.title {
+  text-align: center;
+}
+.name {
+  text-align: center;
+  font-size: 20px;
+}
+.genre {
+  font-size: 20px;
+} */
