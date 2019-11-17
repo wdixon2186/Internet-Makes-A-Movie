@@ -1,8 +1,12 @@
-/* body {
+body {
   font-family: "Helvetica Neue", sans-serif;
   max-width: 50em;
   margin: auto;
   padding: 2em 1em;
+  background-color: darkgray;
+  background-image: url("https://assetsds.cdnedge.bluemix.net/sites/default/files/styles/very_big_1/public/feature/images/adolescent.jpg?itok=aTwGYWz2");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .right {
   text-align: right;
@@ -105,20 +109,38 @@ img {
   width: 50%;
 }
 .detail {
-  color: yellow;
-}
-.block {
-  background-color: yellow;
-  color: white;
+  text-align: center;
 }
 
+.block {
+  background-color: rgba(250, 255, 128, 0.4);
+  border: black;
+  border-width: 1px;
+  border-style: solid;
+}
+.view {
+  float: right;
+}
 .title {
   text-align: center;
 }
 .name {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
 }
 .genre {
-  font-size: 20px;
+  font-size: 18px;
+}
+/* nav {
+  background-color: rgba(170, 255, 246, 1);
+  justify-content: space-around;
+}
+a:hover {
+  background-color: white;
 } */
+.video {
+  font-size: 24px;
+}
+.comment {
+  background-color: rgba(255, 255, 255, 0.7);
+}

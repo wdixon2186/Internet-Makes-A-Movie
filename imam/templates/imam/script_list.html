@@ -1,13 +1,14 @@
 {% extends "imam/base.html" %} {% block content %}
 <h2>Scripts <a href="scripts/new">(+)</a></h2>
+{% for script in scripts %}
 <div class="block">
-  {% for script in scripts %}
-  <h4 class="title">{{script.title}}</h4>
+  <a class="view" href="{% url 'script_detail' pk=script.pk %}"
+    >View comments:</a
+  >
+  <h3 class="title">{{script.title}}</h3>
   <p class="name">{{script.name}}</p>
   <p class="genre">{{script.genre}}</p>
   <p>{{script.logline}}</p>
-  <a href="{% url 'script_detail' pk=script.pk %}">View comments:</a>
   {% endfor %}
 </div>
-
 {% endblock %}

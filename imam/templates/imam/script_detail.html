@@ -4,20 +4,23 @@
 <div class="right">
   <a href="{% url 'script_delete' pk=script.pk %}">Delete</a>
 </div>
-
+<div class="block">
 <h2 class="detail">Title: {{ script.title }}</h2>
 <h4 class="detail">Author: {{ script.name }}</h4>
 <h4 class="detail">Genre: {{ script.genre }}</h4>
 <h4 class="detail">Logline: {{script.logline}}</h4>
-<a href="{{script.uploads.url}}" download>Pages</a>
+<a href="{{script.uploads}}" download>Pages</a>
+</div>
 <br />
 <h3>Comments:</h3>
 <a href="/comments/new">Add New Comment</a>
 <ul>
+    <div class="comment">
   {% for comment in script.comments.all %}
   <li>{{ comment.comment}} <a href="{%  url 'comment_edit' pk=comment.pk%}">Edit</a>
 <div class="right">
     <a href="{% url 'comment_delete' pk=comment.pk %}">Delete</a></li>
   {% endfor %}
+</div>
 </ul>
 {% endblock %}

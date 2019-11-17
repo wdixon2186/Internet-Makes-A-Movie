@@ -5,6 +5,7 @@ from .models import Script, Video, Comment
 
 from .forms import ScriptForm, VideoForm, CommentForm
 from django.contrib.auth.decorators import login_required
+# from filetransfers.api import serve_file
 
 
 def script_list(request):
@@ -111,7 +112,7 @@ def comment_create(request):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save()
-            return redirect('comment_detail', pk=comment.pk)
+            return redirect('script_list')
     else:
         form = CommentForm()
     return render(request, 'imam/comment_form.html', {'form': form})
@@ -123,7 +124,7 @@ def comment_edit(request, pk):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             comment = form.save()
-            return redirect('comment_detail', pk=comment.pk)
+            return redirect('script_list')
     else:
         form = CommentForm(instance=comment)
     return render(request, 'imam/comment_form.html', {'form': form})
@@ -131,4 +132,11 @@ def comment_edit(request, pk):
 @login_required
 def comment_delete(request, pk):
     Comment.objects.get(id=pk).delete()
-    return redirect('comment_list')
+    return redirect('script_list')
+
+def about(request):
+    return render(request, 'imam/about.html')
+
+# def download_handler(request, pk):
+#     upload = get_object_or_404(Script, pk=pk)
+#     return serve_file(request, upload.file)
