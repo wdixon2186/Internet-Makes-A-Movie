@@ -13,10 +13,6 @@ def script_list(request):
     return render(request, 'imam/script_list.html', {'scripts': scripts})
 
 
-def script_detail(request, pk):
-    script = Script.objects.get(id=pk)
-    return render(request, 'imam/script_detail.html', {'script': script})
-
 @login_required
 def script_create(request):
     if request.method == 'POST':
@@ -137,6 +133,27 @@ def comment_delete(request, pk):
 def about(request):
     return render(request, 'imam/about.html')
 
-# def download_handler(request, pk):
-#     upload = get_object_or_404(Script, pk=pk)
-#     return serve_file(request, upload.file)
+@login_required
+def upvote(request, pk):
+   Script.objects.get(id=pk)
+   upvote += 1
+   upvote.save()
+   return redirect('about')
+
+def like_post(request):
+    script = get_object_or_404(Script, id=request.Script.get('script_id'))
+    is_liked = False
+    if script.likes.filter(id=request.user.id).exists():
+        script.likes.remove(request.user)
+        is_liked = False
+    else:
+        script.likes.add(request.user)
+        is_liked = True
+    return redirect('script_detail', pk=script.pk)
+
+def script_detail(request, pk):
+    script = Script.objects.get(id=pk)
+    is_liked= False
+    if script.likes.filter(id=request.user.id).exists():
+        is_liked = True
+    return render(request, 'imam/script_detail.html', {'script': script, 'total_likes': script.total_likes()})

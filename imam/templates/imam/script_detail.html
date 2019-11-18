@@ -5,6 +5,14 @@
   <a href="{% url 'script_delete' pk=script.pk %}">Delete</a>
 </div>
 <div class="block">
+    {{total_likes}} Likes
+    <form action="{% url 'like_post' %}" method="post">
+        {% csrf_token %} {% if is_liked %}
+        <button type="submit" name="script_id" value="script.id">Dislike</button>
+        {% else %}
+        <button type="submit" name="script_id" value="script.id">Like</button>
+        {%endif%}
+    </form>
 <h2 class="detail">Title: {{ script.title }}</h2>
 <h4 class="detail">Author: {{ script.name }}</h4>
 <h4 class="detail">Genre: {{ script.genre }}</h4>

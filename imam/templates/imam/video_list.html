@@ -1,7 +1,7 @@
 {% extends "imam/base.html" %} {% block content %}
 <h2>Videos <a href="videos/new">(+)</a></h2>
 {% for video in videos %}
-<div class="block">
+<div class="vid">
   <a class="video" href="{% url 'video_detail' pk=video.pk %}"
     >{{video.name}}</a
   >
