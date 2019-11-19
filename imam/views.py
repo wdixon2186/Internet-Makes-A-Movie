@@ -108,7 +108,7 @@ def comment_create(request):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save()
-            return redirect('script_detail', pk=script.pk)
+            return redirect('script_list')
     else:
         form = CommentForm()
     return render(request, 'imam/comment_form.html', {'form': form})
