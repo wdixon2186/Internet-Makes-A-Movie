@@ -16,7 +16,7 @@ def script_list(request):
 @login_required
 def script_create(request):
     if request.method == 'POST':
-        form = ScriptForm(request.POST)
+        form = ScriptForm(request.POST,request.FILES)
         if form.is_valid():
             script = form.save()
             return redirect('script_detail', pk=script.pk)
@@ -28,7 +28,7 @@ def script_create(request):
 def script_edit(request, pk):
     script = Script.objects.get(pk=pk)
     if request.method == 'POST':
-        form = ScriptForm(request.POST, instance=script)
+        form = ScriptForm(request.POST, request.FILES, instance=script)
         if form.is_valid():
             script = form.save()
             return redirect('script_detail', pk=script.pk)
@@ -80,7 +80,7 @@ def video_create(request):
 @login_required
 def video_delete(request, pk):
     Video.objects.get(id=pk).delete()
-    return redirect('director_list')
+    return redirect('script_list')
 
 @login_required
 def video_edit(request, pk):
@@ -108,10 +108,11 @@ def comment_create(request):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save()
-            return redirect('script_list')
+            return redirect('script_detail', pk=script.pk)
     else:
         form = CommentForm()
     return render(request, 'imam/comment_form.html', {'form': form})
+
 
 @login_required
 def comment_edit(request, pk):
