@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('BLOG_KEY')
+SECRET_KEY = '6s-pc7k_d6)4+#h)q^*#6%%byg$*vc55ifuql+vssqzbcqdb*_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -138,4 +138,4 @@ LOGIN_REDIRECT_URL = '/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media/')
 MEDIA_URL= "/media/"
 
-django_heroku.settings(locals())
+django_heroku.settings(locals)
