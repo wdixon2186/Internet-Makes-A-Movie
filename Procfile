@@ -1,1 +1,1 @@
-web: gunicorn imam.wsgi
+web: gunicorn imam_project.wsgi
